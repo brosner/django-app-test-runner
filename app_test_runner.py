@@ -28,6 +28,7 @@ def main():
     parser.add_option("--DATABASE_NAME", dest="DATABASE_NAME", default="")
     parser.add_option("--DATABASE_USER", dest="DATABASE_USER", default="")
     parser.add_option("--DATABASE_PASSWORD", dest="DATABASE_PASSWORD", default="")
+    parser.add_option("--SITE_ID", dest="SITE_ID", type="int", default=1)
     
     options, args = parser.parse_args()
     
@@ -48,6 +49,8 @@ def main():
         "DATABASE_NAME": options.DATABASE_NAME,
         "DATABASE_USER": options.DATABASE_USER,
         "DATABASE_PASSWORD": options.DATABASE_PASSWORD,
+        "SITE_ID": options.SITE_ID,
+        "ROOT_URLCONF": "",
         "INSTALLED_APPS": (
             "django.contrib.auth",
             "django.contrib.contenttypes",
