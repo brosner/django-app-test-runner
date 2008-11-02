@@ -6,7 +6,6 @@ import sys
 from optparse import OptionParser
 
 from django.conf import settings
-from django.conf import global_settings
 from django.core.management import call_command
 
 def main():
@@ -49,7 +48,11 @@ def main():
         "DATABASE_NAME": options.DATABASE_NAME,
         "DATABASE_USER": options.DATABASE_USER,
         "DATABASE_PASSWORD": options.DATABASE_PASSWORD,
-        "INSTALLED_APPS": global_settings.INSTALLED_APPS + (
+        "INSTALLED_APPS": (
+            "django.contrib.auth",
+            "django.contrib.contenttypes",
+            "django.contrib.sessions",
+            "django.contrib.sites",
             app_name,
         ),
     })
