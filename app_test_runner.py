@@ -29,16 +29,28 @@ def main():
     parser.add_option("--DATABASE_NAME", dest="DATABASE_NAME", default="")
     parser.add_option("--DATABASE_USER", dest="DATABASE_USER", default="")
     parser.add_option("--DATABASE_PASSWORD", dest="DATABASE_PASSWORD", default="")
+    
     options, args = parser.parse_args()
     
-    sys.path.insert(0, os.path.abspath(os.path.join(os.curdir)))
+    # check for app in args
+    try:
+        app_path = args[0]
+    except IndexError:
+        print "You did not provide an app path."
+        raise SystemExit
+    else:
+        if app_path.endswith("/"):
+            app_path = app_path[:-1]
+        parent_dir, app_name = os.path.split(app_path)
+        sys.path.insert(0, parent_dir)
+    
     settings.configure(**{
         "DATABASE_ENGINE": options.DATABASE_ENGINE,
         "DATABASE_NAME": options.DATABASE_NAME,
         "DATABASE_USER": options.DATABASE_USER,
         "DATABASE_PASSWORD": options.DATABASE_PASSWORD,
         "INSTALLED_APPS": global_settings.INSTALLED_APPS + (
-            args[0],
+            app_name,
         ),
     })
     call_command("test")
