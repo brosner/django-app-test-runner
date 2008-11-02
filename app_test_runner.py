@@ -25,12 +25,18 @@ def main():
         app_test_runner.py
     """
     parser = OptionParser()
-    parser.add_option("-e", "--DATABASE_ENGINE", dest="DATABASE_ENGINE", default="sqlite3")
+    parser.add_option("--DATABASE_ENGINE", dest="DATABASE_ENGINE", default="sqlite3")
+    parser.add_option("--DATABASE_NAME", dest="DATABASE_NAME", default="")
+    parser.add_option("--DATABASE_USER", dest="DATABASE_USER", default="")
+    parser.add_option("--DATABASE_PASSWORD", dest="DATABASE_PASSWORD", default="")
     options, args = parser.parse_args()
     
     sys.path.insert(0, os.path.abspath(os.path.join(os.curdir)))
     settings.configure(**{
         "DATABASE_ENGINE": options.DATABASE_ENGINE,
+        "DATABASE_NAME": options.DATABASE_NAME,
+        "DATABASE_USER": options.DATABASE_USER,
+        "DATABASE_PASSWORD": options.DATABASE_PASSWORD,
         "INSTALLED_APPS": global_settings.INSTALLED_APPS + (
             args[0],
         ),
