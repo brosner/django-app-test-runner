@@ -59,6 +59,11 @@ def main():
             os.path.join(os.path.dirname(__file__), "templates"),
         ),
         "INSTALLED_APPS": (
+            # HACK: the admin app should *not* be required. Need to spend some
+            # time looking into this. Django #8523 has a patch for this issue,
+            # but was wrongly attached to that ticket. It should have its own
+            # ticket.
+            "django.contrib.admin",
             "django.contrib.auth",
             "django.contrib.contenttypes",
             "django.contrib.sessions",
