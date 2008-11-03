@@ -51,6 +51,13 @@ def main():
         "DATABASE_PASSWORD": options.DATABASE_PASSWORD,
         "SITE_ID": options.SITE_ID,
         "ROOT_URLCONF": "",
+        "TEMPLATE_LOADERS": (
+            "django.template.loaders.filesystem.load_template_source",
+            "django.template.loaders.app_directories.load_template_source",
+        ),
+        "TEMPLATE_DIRS": (
+            os.path.join(os.path.dirname(__file__), "templates"),
+        ),
         "INSTALLED_APPS": (
             "django.contrib.auth",
             "django.contrib.contenttypes",
