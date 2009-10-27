@@ -1,0 +1,3 @@
+#!/usr/bin/env python
+import app_test_runner
+app_test_runner.main()
