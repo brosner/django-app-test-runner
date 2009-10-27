@@ -14,7 +14,7 @@ setup(
         "app_test_runner",
     ],
     scripts = [
-        "bin/app_test_runner",
+        "bin/app-test-runner",
     ],
     classifiers = [
         "Development Status :: 3 - Alpha",
