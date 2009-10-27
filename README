@@ -1,0 +1,3 @@
+django-app-test-runner is a script that will run Django app tests standalone.
+This is very handy if you are developing an app and don't want to setup a
+Django environment. This will do it all for you.
