@@ -49,6 +49,7 @@ def main():
         "DATABASE_NAME": options.DATABASE_NAME,
         "DATABASE_USER": options.DATABASE_USER,
         "DATABASE_PASSWORD": options.DATABASE_PASSWORD,
+        "TEST_DATABASE_NAME": options.DATABASE_NAME,
         "SITE_ID": options.SITE_ID,
         "ROOT_URLCONF": "",
         "TEMPLATE_LOADERS": (
