@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name = "django-app-test-runner",
-    version = "0.1",
+    version = "1.0.dev1",
     author = "Brian Rosner",
     author_email = "brosner@gmail.com",
     description = "Run Django app tests standalone",
